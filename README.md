@@ -1,15 +1,12 @@
-# Data Engineering Project Using DBT
+# DBT Pipeline for Travel Data Analytics
 
-This project is for anyone who wants to get started with **DBT (Data Build Tool)**.  I built it to learn the basics of DBT and how it works with Snowflake.
+This project is designed for individuals looking to explore **DBT (Data Build Tool)**. I developed it to consolidate my understanding of DBT's core concepts and its seamless integration with Snowflake, to build scalable and efficient data transformation pipelines
 
 ### What is DBT?  
-DBT is a tool that helps you write SQL queries and organize your data transformations.  
-But DBT doesn’t have its own storage—it needs a data warehouse like Snowflake to run queries.
+DBT is a powerful framework that helps us to write and organize SQL queries for data transformations. It also offers built-in documentation and testing features, helping you track our data transformations and ensure data quality throughout the process. It doesn't provide its own storage but relies on a data warehouse, like Snowflake, to execute the queries and manage the data.
 
 ### Goal  
-The goal of this project is to learn how DBT works and practice its main features like connections, seeds, and configurations.
-
-Tools I Used  - DBT Cloud (Trial version), Snowflake (Trial version) 
+The goal of this project is to explore and implement key DBT concepts, including models, sources, snapshots, tests (both built-in and custom), macros, pre and post hook and incremental materialization. This project aims to provide a hands-on understanding of how DBT can be used to streamline data transformation processes while ensuring data quality and efficiency
 
 ## lets start 
 I have created a database and schema to store the raw data.  
