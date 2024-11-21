@@ -9,18 +9,15 @@ But DBT doesn’t have its own storage—it needs a data warehouse like Snowflak
 ### Goal  
 The goal of this project is to learn how DBT works and practice its main features like connections, seeds, and configurations.
 
-### Tools I Used  
-DBT Cloud (Trial version), Snowflake (Trial version) 
+Tools I Used  - DBT Cloud (Trial version), Snowflake (Trial version) 
 
-### Step 1: Create a Database and Schema in Snowflake  
-I created a database and schema to store the raw data.  
+## lets start 
+I have created a database and schema to store the raw data.  
 
 ```sql
 CREATE DATABASE travel_db;  
 CREATE SCHEMA raw;
 ``` 
-
-### Step 2: Add Tables
 I have added two tables to the raw schema:  
 
 - `booking_details`  
@@ -30,13 +27,9 @@ You can find the SQL scripts for these tables here:
 - [`Snowflake_code/customer_details.sql`](./Snowflake_code/customer_details.sql)  
 - [`Snowflake_code/booking_details.sql`](./Snowflake_code/booking_details.sql)  
 
----
-
-## Step 3: Connect DBT to Snowflake
 In DBT Cloud, I connected to Snowflake by adding:  Account ID, Database , Warehouse
 
-
-### Profiles File (`profiles.yml`)  
+first I have created the `profiles.yml` file.
 This file tells DBT how to connect to Snowflake.
 
 
