@@ -33,17 +33,12 @@ You can find the SQL scripts for these tables here:
 ---
 
 ## Step 3: Connect DBT to Snowflake
-In DBT Cloud, I connected to Snowflake by adding:  
-- **Account ID**  
-- **Database**  
-- **Warehouse**  
+In DBT Cloud, I connected to Snowflake by adding:  Account ID, Database , Warehouse
 
----
-
-## How I Set Up DBT
 
 ### Profiles File (`profiles.yml`)  
-This file tells DBT how to connect to Snowflake.  
+This file tells DBT how to connect to Snowflake.
+
 
 ### Project File (`dbt_project.yml`)  
 This file contains all the project settings like the database, schema, and project name.  
