@@ -110,8 +110,12 @@ This file defines the metadata and tests for the DBT models, ensuring data quali
 Descriptions for better understanding of each column's purpose.
 Tests that automatically validate the data quality and consistency, such as ensuring no null values in critical columns (country_name) and that the count of bookings is always greater than zero.
 
-
-
+Snapshot -
+In DBT , a snapshot is a way to capture and preserve the state of data over time, typically used for tracking slowly changing dimensions (SCDs). Snapshots allow us to track changes in your data over time, so we can analyze how records evolve
+How DBT Snapshots Work:
+Initial Load: On the first run, DBT takes a snapshot of the current state of the int_customer_details data.
+Subsequent Runs: On subsequent runs, DBT compares the records using the unique key (customer_id) and the updated_at field. If a change is detected (e.g., if a customer's details have been modified), a new record is inserted into the snapshot table.
+Preserving History: Unlike regular tables, snapshots preserve historical records, allowing you to track how a customer’s details change over time.
 
 
 
