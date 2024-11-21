@@ -96,13 +96,13 @@ To keep everything clear and organized, I have divided the DBT models into three
     This model is designed to create a Dimensional Table that can be used in reporting and analysis. It helps in understanding the distribution of customers across different segments and countries, providing valuable insights for decision-making and business strategy.
 
 
-    ![lineage](dbt/dim_customer_segmentation_lineage.png)
+    ![lineage](Images/dim_customer_segmentation_lineage.png)
 
 
   - [`fct_booking_summary`](dbt/models/marts/fct_booking_summary.sql) - 
     This model is part of the Fact layer and is focused on summarizing the booking data for analytical purposes. It's designed to aggregate key metrics, such as total spending and total bookings, at a detailed level by destination and country.It enables decision-makers to easily understand which destinations are most popular and where customers are spending the most.
 
-  ![lineage](dbt/fct_booking_summary_lineage.png)
+  ![lineage](Images/fct_booking_summary_lineage.png)
 
 
 ### `Macros` -
