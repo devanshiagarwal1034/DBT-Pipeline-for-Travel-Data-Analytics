@@ -19,4 +19,6 @@ create Schema raw;
 
 
 then , I have created the connection with Snowflake ,I have added account_id  , database and warehouse to make the connection.
-I have first started with creating the seeds  ,I have use 4 seeds in this project.
+I have first started with creating the seeds  ,I have created the below file , to jott down all the concepts I have use in this project , you can refer here -dbt/concepts
+
+I have use 4 seeds in this project.
