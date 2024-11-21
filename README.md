@@ -1,31 +1,62 @@
-# DataEngineeringProjectusingdbt
-dbt project
-I have build this project to get the idea of core concepts of  dbt .
+# Data Engineering Project Using DBT
 
-In this project I have use trial version of dbt cloud and Snowflake. dbt don’t have its own memory, it needs to use some Datawarehouse to able to execute the queries.
+This project is for anyone who wants to get started with **DBT (Data Build Tool)**.  I built it to learn the basics of DBT and how it works with Snowflake.
 
-I have created the database and schema named as raw in Snowflake
+### What is DBT?  
+DBT is a tool that helps you write SQL queries and organize your data transformations.  
+But DBT doesn’t have its own storage—it needs a data warehouse like Snowflake to run queries.
 
---sql code --
-create database travel_db ;
-create Schema raw;
+### Goal  
+The goal of this project is to learn how DBT works and practice its main features like connections, seeds, and configurations.
 
+### Tools I Used  
+DBT Cloud (Trial version), Snowflake (Trial version) 
 
- I have added the two tables -booking_details and customer_details in raw schema , in below path you can see its create
- and insert statement -
+### Step 1: Create a Database and Schema in Snowflake  
+I created a database and schema to store the raw data.  
 
- Snowflake_code/customer_details.sql
- Snowflake_code/booking_details.sql
+```sql
+CREATE DATABASE travel_db;  
+CREATE SCHEMA raw;
+``` 
 
+### Step 2: Add Tables
+I have added two tables to the raw schema:  
 
-then , I have created the connection with Snowflake ,I have added account_id  , database and warehouse to make the connection.,I have created the below file , I created the dbt_concepts file to jott down all the concepts
-I have use in this project , you can refer here dbt_concepts
-I have first started with creating the profile.yml file and add the configuration related to Snowflake , then I have created the dbt_project.yml where I have added all the configuration related to schema , databse .
+- `booking_details`  
+- `customer_details`  
 
+You can find the SQL scripts for these tables here:  
+- [`Snowflake_code/customer_details.sql`](./Snowflake_code/customer_details.sql)  
+- [`Snowflake_code/booking_details.sql`](./Snowflake_code/booking_details.sql)  
 
-then creating the seeds  
+---
 
-I have use 4 seeds in this project.
+## Step 3: Connect DBT to Snowflake
+In DBT Cloud, I connected to Snowflake by adding:  
+- **Account ID**  
+- **Database**  
+- **Warehouse**  
+
+---
+
+## How I Set Up DBT
+
+### Profiles File (`profiles.yml`)  
+This file tells DBT how to connect to Snowflake.  
+
+### Project File (`dbt_project.yml`)  
+This file contains all the project settings like the database, schema, and project name.  
+
+### DBT Concepts File  
+I created a file called `dbt_concepts` to document all the DBT concepts I’m learning while building this project.  
+
+---
+
+## What Are Seeds?  
+In DBT, seeds are CSV files that you can load as tables into your database.  
+I used **4 seed files** in this project to load sample data.  
+
 
 
 
