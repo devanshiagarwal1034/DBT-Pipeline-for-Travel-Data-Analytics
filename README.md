@@ -29,15 +29,20 @@ You can find the SQL scripts for these tables here:
 
 In DBT Cloud, I connected to Snowflake by adding:  Account ID, Database , Warehouse
 
-first I have created the `profiles.yml` file.
-This file tells DBT how to connect to Snowflake.
-
-
-### Project File (`dbt_project.yml`)  
-This file contains all the project settings like the database, schema, and project name.  
-
 ### DBT Concepts File  
 I created a file called `dbt_concepts` to document all the DBT concepts I’m learning while building this project.  
+
+### `profiles.yml` -
+
+This `profiles.yml` file configures the connection between DBT and Snowflake. It defines how DBT should authenticate and connect to your Snowflake data warehouse.
+When you run DBT commands, such as dbt run or dbt test, the profiles.yml file tells DBT how to connect to your Snowflake database using the specified configuration. By setting up the target as dev, DBT uses the connection details under the dev output.
+This setup is flexible and allows you to add other environments like prod for production-level settings if needed.
+
+
+### `dbt_project.yml` -
+This file contains all the project settings like the database, schema, and project name.  
+
+
 
 ---
 
