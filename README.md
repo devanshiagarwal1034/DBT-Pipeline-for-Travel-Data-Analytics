@@ -16,7 +16,7 @@ CREATE DATABASE travel_db;
 CREATE SCHEMA raw;
 ```
 
-Next, I created two tables in the raw schema:
+Next, I have created two tables in the raw schema:
 
 - `booking_details`  
 - `customer_details`  
@@ -25,7 +25,7 @@ You can find the SQL scripts for these tables here:
 - [`Snowflake_code/customer_details.sql`](./Snowflake_code/customer_details.sql)  
 - [`Snowflake_code/booking_details.sql`](./Snowflake_code/booking_details.sql)  
 
-In DBT Cloud, I connected to Snowflake by adding the necessary details, including: Account ID, Database , Warehouse.
+In DBT Cloud, I have connected to Snowflake by adding the necessary details, including: Account ID, Database , Warehouse.
 
 ### `profiles.yml` -
 
@@ -35,17 +35,18 @@ When we run DBT commands, such as dbt run or dbt test, the `profiles.yml` file t
 
 ### `dbt_project.yml` -
 
-The dbt_project.yml file is the configuration file that tells DBT how to run your project. It contains essential details about the project, including its name, version, profiles, model configuration, and more.
+The dbt_project.yml file is the configuration file that tells DBT how to run our project. It contains essential details about the project, including its name, version, profiles, model configuration, and more.
 
 - [`dbt_project.yml`](dbt/dbt_project.yml)
 
 ### `Seeds` - 
 
-In DBT, seeds are CSV files that are loaded into the database as tables. For this project, I used **4 seed files** to load static data into the database.
+In DBT, seeds are CSV files that are loaded into the database as tables. For this project, I have used **4 seed files** to load static data into the database.
 
 - [`seeds`](dbt/seeds)
 
 ### `sources.yml` -
+
 The sources.yml file is a configuration file to define metadata for the source data that we will use in our models. 
 - [`sources.yml`](dbt/models/sources.yml)
   
@@ -58,6 +59,7 @@ I have use **Freshness** parameter to ensure that the data being ingested or tra
 I have use Data Quality Tests to ensure booking_id is unique, customer_id are not null, and status are always one of the accepted options.
 
 ### `Models` -
+
 In DBT, models are SQL files where we define transformations to manipulate and clean our raw data. Each model represents a specific transformation or view that gets created in the database. These models help us break down complex processes into manageable, reusable parts, making the pipeline more efficient and easier to maintain.
 
 To keep everything clear and organized, I have divided the DBT models into three distinct layers: Staging, Intermediate, and Marts.
@@ -91,7 +93,7 @@ To keep everything clear and organized, I have divided the DBT models into three
   The marts layer contains models that are optimized for business users and reporting tools.
 
   - [`dim_customer_segmentation`](dbt/models/marts/dim_customer_segmentation.sql) -
-    This model is designed to create a Dimensional Table that can be used in reporting and analysis. It helps in understanding the distribution of customers across   different segments and countries, providing valuable insights for decision-making and business strategy.
+    This model is designed to create a Dimensional Table that can be used in reporting and analysis. It helps in understanding the distribution of customers across different segments and countries, providing valuable insights for decision-making and business strategy.
 
 
     ![lineage](dbt/dim_customer_segmentation_lineage.png)
@@ -104,7 +106,7 @@ To keep everything clear and organized, I have divided the DBT models into three
 
 
 ### `Macros` -
-It is a reusable block of code written in Jinja (a templating language). Macros  help automate repetitive tasks or complex logic by creating reusable functions that can be used across your models, tests, and other DBT files.
+It is a reusable block of code written in Jinja (a templating language). Macros help automate repetitive tasks or complex logic by creating reusable functions that can be used across your models, tests, and other DBT files.
  custom_test.sql
 
 - [`custom_tests.sql`](dbt/macros/custom_tests.sql) -
