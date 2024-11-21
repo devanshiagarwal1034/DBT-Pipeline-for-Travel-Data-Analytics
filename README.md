@@ -11,5 +11,12 @@ create database travel_db ;
 create Schema raw;
 
 
- I have added the two tables -booking_details and customer_details in raw schema 
- 
+ I have added the two tables -booking_details and customer_details in raw schema , in below path you can see its create
+ and insert statement -
+
+ Snowflake_code/customer_details.sql
+ Snowflake_code/booking_details.sql
+
+
+then , I have created the connection with Snowflake ,I have added account_id  , database and warehouse to make the connection.
+I have first started with creating the seeds  ,I have use 4 seeds in this project.
