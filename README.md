@@ -62,26 +62,25 @@ In DBT, models are SQL files where we define transformations to manipulate and c
 
 To keep everything clear and organized, I have divided the DBT models into three distinct layers: Staging, Intermediate, and Marts.
 
-1. **Staging**:
+1. **Staging** -
   This layer contains models that load raw data directly from the source tables.
-  - [`stg_booking_details.sql`](dbt/profiles.yml)
-  - [`stg_customer_details.sql`](dbt/profiles.yml)
+
+  - [`stg_booking_details.sql`](dbt/models/staging/stg_booking_details.sql)
+  - [`stg_customer_details.sql`](dbt/models/staging/stg_customer_details.sql)
+
+    Both of these staging models are designed to structure raw data from the source tables in a way that makes it easier to work with in later stages of the    pipeline.
 
 
+2. **Intermediate** -
+  The intermediate models transform the clean data from the staging layer and apply further cleaning or enrichment.
 
-Both of these staging models are designed to structure raw data from the source tables in a way that makes it easier to work with in later stages of the pipeline.
+  - [`int_customer_details.sql`](dbt/models/staging/stg_customer_details.sql)
 
-
-2. Intermediate:
-The intermediate models take the clean data from the staging layer and apply further transformations.
-
-**int_booking_details** -
-**Config Block**:
-- **Materialization**: The model is set to be materialized incrementally (`materialized='incremental'`), meaning only new or changed records will be processed rather than reprocessing the entire dataset.
-- **Pre-Hook and Post-Hook**: 
-  - **Pre-hook**: Before the model runs, it inserts a log entry into the `model_run_log` table to track when the model execution starts.
-  - **Post-hook**: After the model execution finishes successfully, it inserts another log entry to mark the model as complete.
-   - The model pulls data from the `stg_booking_details` staging table (via `{{ ref('stg_booking_details') }}`) and joins it with other tables (`destination_types`, `customer_segments`, `country_codes`, and `currency_exchange_rates`).
+    ***Config Block*** -
+    - **Materialization**: The model is set to be materialized incrementally (`materialized='incremental'`), meaning only new or changed records will be processed     rather than reprocessing the entire dataset.
+    - **Pre-hook**: Before the model runs, it inserts a log entry into the `model_run_log` table to track when the model execution starts.
+    - **Post-hook**: After the model execution finishes successfully, it inserts another log entry to mark the model as complete.
+   - The model pulls data from the `stg_booking_details` staging table (via `{{ ref('stg_booking_details') }}`) and joins it with other tables   (`destination_types`, `customer_segments`, `country_codes`, and `currency_exchange_rates`).
    - This creates a more enriched version of the `booking_details` table
 This setup ensures that only new and updated bookings are processed, and it logs the model's execution times for tracking purposes. It efficiently manages growing datasets by leveraging DBT’s incremental model functionality, reducing processing time and resources.
 
