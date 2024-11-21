@@ -133,6 +133,8 @@ In DBT , a snapshot is a way to capture and preserve the state of data over time
 
 Unlike regular tables, snapshots preserve historical records, allowing us to track how a customer’s details change over time.
 
+This project demonstrates the power of DBT in building organized, efficient, and scalable data pipelines. By leveraging its core features with Snowflake, it provides a practical approach to transforming raw data into meaningful insights while ensuring data quality at every step.
+
 
 
 
