@@ -93,6 +93,11 @@ This model takes the data from the Staging layer (stg_customer_details.sql) and 
 4. Marts:
 The marts layer contains models that are optimized for business users and reporting tools.
 
+**dim_customer_segmentation** -
+This model is designed to create a Dimensional Table that can be used in reporting and analysis. It helps in understanding the distribution of customers across different segments and countries, providing valuable insights for decision-making and business strategy.
+
+
+
 
 
 
