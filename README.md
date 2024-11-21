@@ -9,7 +9,7 @@ DBT is a powerful framework that helps us to write and organize SQL queries for 
 The goal of this project is to explore and implement key DBT concepts, including models, sources, snapshots, tests (both built-in and custom), macros, pre and post hook and incremental materialization. This project aims to provide a hands-on understanding of how DBT can be used to streamline data transformation processes while ensuring data quality and efficiency
 
 ### Project Setup 
-I started by creating a database and schema in Snowflake to store the raw data.  
+first , I have created a database and schema in Snowflake to store the raw data.  
 
 ```sql
 CREATE DATABASE travel_db;  
@@ -74,7 +74,7 @@ To keep everything clear and organized, I have divided the DBT models into three
 2. **Intermediate** -
   The intermediate models transform the clean data from the staging layer and apply further cleaning or enrichment.
 
-  - [`int_customer_details.sql`](dbt/models/staging/stg_customer_details.sql)
+  - [`int_customer_details.sql`](dbt/models/intermediate/int_customer_details.sql)
 
     ***Config Block*** -
     - **Materialization**: The model is set to be materialized incrementally (`materialized='incremental'`), meaning only new or changed records will be processed     rather than reprocessing the entire dataset.
