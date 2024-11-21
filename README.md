@@ -1,6 +1,6 @@
 # DBT Pipeline for Travel Data Analytics
 
-This project is designed for individuals looking to explore **DBT (Data Build Tool)**. I developed it to consolidate my understanding of DBT's core concepts and its seamless integration with Snowflake, to build scalable and efficient data transformation pipelines
+This project is designed for individuals looking to explore **DBT (Data Build Tool)**. I have developed it to consolidate my understanding of DBT's core concepts and its seamless integration with Snowflake, to build scalable and efficient data transformation pipelines
 
 ### What is DBT?  
 DBT is a powerful framework that helps us to write and organize SQL queries for data transformations. It also offers built-in documentation and testing features, helping us to track our data transformations and ensure data quality throughout the process. It doesn't provide its own storage but relies on a data warehouse, like Snowflake, to execute the queries and manage the data.
@@ -8,14 +8,15 @@ DBT is a powerful framework that helps us to write and organize SQL queries for 
 ### Goal  
 The goal of this project is to explore and implement key DBT concepts, including models, sources, snapshots, tests (both built-in and custom), macros, pre and post hook and incremental materialization. This project aims to provide a hands-on understanding of how DBT can be used to streamline data transformation processes while ensuring data quality and efficiency
 
-## lets start 
-I have created a database and schema to store the raw data.  
+### Project Setup 
+I started by creating a database and schema in Snowflake to store the raw data.  
 
 ```sql
 CREATE DATABASE travel_db;  
 CREATE SCHEMA raw;
-``` 
-I have added two tables to the raw schema:  
+```
+
+Next, I created two tables in the raw schema:
 
 - `booking_details`  
 - `customer_details`  
@@ -24,26 +25,24 @@ You can find the SQL scripts for these tables here:
 - [`Snowflake_code/customer_details.sql`](./Snowflake_code/customer_details.sql)  
 - [`Snowflake_code/booking_details.sql`](./Snowflake_code/booking_details.sql)  
 
-In DBT Cloud, I connected to Snowflake by adding:  Account ID, Database , Warehouse
-
-### DBT Concepts File  
-I created a file called `dbt_concepts` to document all the DBT concepts I’m learning while building this project.  
+In DBT Cloud, I connected to Snowflake by adding the necessary details, including: Account ID, Database , Warehouse.
 
 ### `profiles.yml` -
 
-`profiles.yml` file configures the connection between DBT and Snowflake. It defines how DBT should authenticate and connect to our Snowflake data warehouse.
-When we run DBT commands, such as dbt run or dbt test, the profiles.yml file tells DBT how to connect to our Snowflake database using the specified configuration. By setting up the target as dev, DBT uses the connection details under the dev output.
-This setup is flexible and allows us to add other environments like prod for production-level settings if needed.
+When we run DBT commands, such as dbt run or dbt test, the `profiles.yml` file tells DBT how to connect to our Snowflake database using the specified configuration. By setting up the target as dev, DBT uses the connection details under the dev output.This setup is flexible and allows us to add other environments like prod for production-level settings if needed.
+
 - [`profiles.yml`](dbt/profiles.yml)
 
-
 ### `dbt_project.yml` -
+
 The dbt_project.yml file is the configuration file that tells DBT how to run your project. It contains essential details about the project, including its name, version, profiles, model configuration, and more.
+
 - [`dbt_project.yml`](dbt/dbt_project.yml)
 
-### Seeds - 
-In DBT, seeds are CSV files that we can load as tables into our database.  
-I have used **4 seed files** in this project to load static data. 
+### `Seeds` - 
+
+In DBT, seeds are CSV files that are loaded into the database as tables. For this project, I used **4 seed files** to load static data into the database.
+
 - [`seeds`](dbt/seeds)
 
 ### `sources.yml` -
@@ -55,14 +54,15 @@ This sources.yml file defines the metadata for two source tables in the TRAVEL_D
 I have use **Freshness** parameter to ensure that the data being ingested or transformed is current and valid. Both the booking_details and customer_details tables have freshness checks that trigger:
   - A warning if the data is older than 1 hour.
   - An error if the data is older than 24 hours.
-I have use Data Quality Tests to ensure things like booking_id is unique, essential fields like customer_id are not null, and status are always one of the accepted options.
+   
+I have use Data Quality Tests to ensure booking_id is unique, customer_id are not null, and status are always one of the accepted options.
 
-### Models -
+### `Models` -
 In DBT, models are SQL files where we define transformations to manipulate and clean our raw data. Each model represents a specific transformation or view that gets created in the database. These models help us break down complex processes into manageable, reusable parts, making the pipeline more efficient and easier to maintain.
 
 To keep everything clear and organized, I have divided the DBT models into three distinct layers: Staging, Intermediate, and Marts.
 
-1. Staging:
+1. **Staging**:
 This layer contains models that load raw data directly from the source tables.
 
 models/staging/stg_booking_details.sql
