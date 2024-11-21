@@ -46,7 +46,8 @@ The dbt_project.yml file is the configuration file that tells DBT how to run you
 
 ### Seeds - 
 In DBT, seeds are CSV files that we can load as tables into our database.  
-I have used **4 seed files** in this project to load sample data.  
+I have used **4 seed files** in this project to load sample data. 
+- [`seeds`](dbt/seeds)
 
 
 
