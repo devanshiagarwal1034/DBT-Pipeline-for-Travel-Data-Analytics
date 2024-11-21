@@ -3,9 +3,9 @@ travel_profile:  # This is the profile name you define
   outputs:
     dev:
       type: snowflake
-      account: nlhjcmr-uz76807
-      user: Devanshi
-      password: Devanshi@3001
+      account:  <write your account_id>
+      user: <write your  user>
+      password: <write your password>
       role: ACCOUNTADMIN
       database: TRAVEL_DB
       warehouse: COMPUTE_WH
