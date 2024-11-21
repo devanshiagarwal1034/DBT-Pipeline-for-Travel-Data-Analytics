@@ -99,6 +99,12 @@ This model is designed to create a Dimensional Table that can be used in reporti
 **fct_booking_summary** -
 This model is part of the Fact layer and is focused on summarizing the booking data for analytical purposes. It's designed to aggregate key metrics, such as total spending and total bookings, at a detailed level by destination and country.It enables decision-makers to easily understand which destinations are most popular and where customers are spending the most.
 
+macros -
+It is a reusable block of code written in Jinja (a templating language). Macros  help automate repetitive tasks or complex logic by creating reusable functions that can be used across your models, tests, and other DBT files.
+ custom_test.sql
+
+ This macro is designed to check if a given column (in this case, total_bookings) contains any values that are less than or equal to zero. The purpose is to ensure that the total_bookings column always has values greater than zero,
+
 schema.yml
 This file defines the metadata and tests for the DBT models, ensuring data quality and consistency.It is used to enforce data integrity for our models by specifying:
 Descriptions for better understanding of each column's purpose.
