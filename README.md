@@ -107,19 +107,29 @@ To keep everything clear and organized, I have divided the DBT models into three
 It is a reusable block of code written in Jinja (a templating language). Macros  help automate repetitive tasks or complex logic by creating reusable functions that can be used across your models, tests, and other DBT files.
  custom_test.sql
 
- This macro is designed to check if a given column (in this case, total_bookings) contains any values that are less than or equal to zero. The purpose is to ensure that the total_bookings column always has values greater than zero,
+- [`custom_tests.sql`](dbt/macros/custom_tests.sql) -
+  This macro is designed to check if a given column (in this case, total_bookings) contains any values that are less than or equal to zero. The purpose is to ensure that the total_bookings column always has values greater than zero,
 
-schema.yml
+
+### `Schema.yml` -
 This file defines the metadata and tests for the DBT models, ensuring data quality and consistency.It is used to enforce data integrity for our models by specifying:
-Descriptions for better understanding of each column's purpose.
-Tests that automatically validate the data quality and consistency, such as ensuring no null values in critical columns (country_name) and that the count of bookings is always greater than zero.
 
-Snapshot -
-In DBT , a snapshot is a way to capture and preserve the state of data over time, typically used for tracking slowly changing dimensions (SCDs). Snapshots allow us to track changes in your data over time, so we can analyze how records evolve
-How DBT Snapshots Work:
-Initial Load: On the first run, DBT takes a snapshot of the current state of the int_customer_details data.
-Subsequent Runs: On subsequent runs, DBT compares the records using the unique key (customer_id) and the updated_at field. If a change is detected (e.g., if a customer's details have been modified), a new record is inserted into the snapshot table.
-Preserving History: Unlike regular tables, snapshots preserve historical records, allowing you to track how a customer’s details change over time.
+**Descriptions** - for better understanding of each column's purpose.
+
+**Tests** - It automatically validate the data quality and consistency, such as ensuring no null values in critical columns (country_name) and that the count of bookings is always greater than zero.
+
+
+### `Snapshot` -
+
+In DBT , a snapshot is a way to capture and preserve the state of data over time, typically used for tracking slowly changing dimensions (SCDs). Snapshots allow us to track changes in our data over time, so we can analyze how records evolve
+
+  **How DBT Snapshots Work** - 
+  
+  **Initial Load**: On the first run, DBT takes a snapshot of the current state of the int_customer_details data.
+  
+  **Subsequent Runs**: On subsequent runs, DBT compares the records using the unique key (customer_id) and the updated_at field. If a change is detected (e.g., if   a customer's details have been modified), a new record is inserted into the snapshot table.
+
+Unlike regular tables, snapshots preserve historical records, allowing us to track how a customer’s details change over time.
 
 
 
