@@ -1,0 +1,19 @@
+
+
+version: 2
+
+models:
+  - name: fct_booking_summary  # Replace with the actual model name
+    description: "Fact table summarizing booking data"
+    columns:
+      - name: country_name
+        description: "Unique identifier for the booking"
+        tests:
+          - not_null
+    
+      - name: total_bookings
+        description: "The total number of bookings should be greater than 0."
+        tests:
+          - custom_tests_total_bookings_greater_than_zero
+
+            

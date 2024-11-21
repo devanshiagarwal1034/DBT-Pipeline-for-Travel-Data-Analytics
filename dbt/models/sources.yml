@@ -1,0 +1,73 @@
+version: 2
+
+sources:
+  - name: travel_project
+    database: TRAVEL_DB # Your Snowflake database name
+    schema: raw # The schema where your tables are stored (e.g., your schema name)
+    tables:
+      - name: booking_details
+        description: "Contains details of customer bookings"
+        columns:
+          - name: booking_id
+            description: "Unique identifier for the booking"
+          - name: customer_id
+            description: "ID of the customer making the booking"
+          - name: booking_date
+            description: "The date the booking was made"
+          - name: destination_type
+            description: "Type of the destination (city, beach, etc.)"
+          - name: amount_spent
+            description: "Total amount spent on the booking"
+          - name: currency_code
+            description: "Currency used for the booking"
+          - name: status
+            description: "Status of the booking (confirmed, canceled, etc.)"
+          - name: segment_id
+            description: "Customer segment ID"
+          - name: country_code
+            description: "Country code where the customer is located"
+        freshness:
+          warn_after: { count: 1, period: hour } # Warn if the data is older than 1 hour
+          error_after: { count: 24, period: hour } # Error if the data is older than 24 hours
+        tests:
+          - unique:
+              column_name: booking_id
+          - not_null:
+              column_name: customer_id
+          - not_null:
+              column_name: booking_date
+          - accepted_values:
+              column_name: status
+              values: ["confirmed", "canceled", "pending"]
+       
+
+      - name: customer_details
+        description: "Contains customer details like name, contact, and address"
+        columns:
+          - name: customer_id
+            description: "Unique identifier for the customer"
+          - name: first_name
+            description: "Customer's first name"
+          - name: last_name
+            description: "Customer's last name"
+          - name: email
+            description: "Customer's email address"
+          - name: phone_number
+            description: "Customer's phone number"
+          - name: address
+            description: "Customer's address"
+          - name: segment_id
+            description: "Customer segment ID"
+          - name: country_code
+            description: "Customer's country code"
+        freshness:
+          warn_after: { count: 1, period: hour } # Warn if the data is older than 1 hour
+          error_after: { count: 24, period: hour } # Error if the data is older than 24 hours
+        tests:
+          - unique:
+              column_name: customer_id
+          - not_null:
+              column_name: first_name
+          - not_null:
+              column_name: last_name
+          
