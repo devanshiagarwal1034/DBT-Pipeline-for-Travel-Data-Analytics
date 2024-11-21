@@ -51,7 +51,7 @@ I have used **4 seed files** in this project to load static data.
 
 ### `sources.yml` -
 The sources.yml file is a configuration file to define metadata for the source data that we will use in our models. 
-- [`sources.yml`](dbt/model/sources.yml)
+- [`sources.yml`](dbt/models/sources.yml)
   
 This sources.yml file defines the metadata for two source tables in the TRAVEL_DB Snowflake database: booking_details and customer_details. It specifies the schema (raw) and provides descriptions for each table and its columns.
 
@@ -59,6 +59,9 @@ I have use **Freshness** parameter to ensure that the data being ingested or tra
   - A warning if the data is older than 1 hour.
   - An error if the data is older than 24 hours.
 I have use Data Quality Tests to ensure things like booking_id is unique, essential fields like customer_id are not null, and status are always one of the accepted options.
+
+
+
 
 
 
