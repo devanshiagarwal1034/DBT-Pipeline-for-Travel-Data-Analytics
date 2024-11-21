@@ -47,7 +47,7 @@ In DBT, seeds are CSV files that are loaded into the database as tables. For thi
 
 ### `sources.yml` -
 
-The sources.yml file is a configuration file to define metadata for the source data that we will use in our models. 
+It is a configuration file to define metadata for the source data that we will use in our models. 
 - [`sources.yml`](dbt/models/sources.yml)
   
 This sources.yml file defines the metadata for two source tables in the TRAVEL_DB Snowflake database: booking_details and customer_details. It specifies the schema (raw) and provides descriptions for each table and its columns.
