@@ -63,10 +63,11 @@ In DBT, models are SQL files where we define transformations to manipulate and c
 To keep everything clear and organized, I have divided the DBT models into three distinct layers: Staging, Intermediate, and Marts.
 
 1. **Staging**:
-This layer contains models that load raw data directly from the source tables.
+  This layer contains models that load raw data directly from the source tables.
+  - [`stg_booking_details.sql`](dbt/profiles.yml)
+  - [`stg_customer_details.sql`](dbt/profiles.yml)
 
-models/staging/stg_booking_details.sql
-models/staging/stg_customer_details.sql
+
 
 Both of these staging models are designed to structure raw data from the source tables in a way that makes it easier to work with in later stages of the pipeline.
 
