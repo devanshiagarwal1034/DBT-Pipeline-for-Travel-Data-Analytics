@@ -68,6 +68,12 @@ To keep everything clear and organized, I have divided the DBT models into three
 1. Staging:
 This layer contains models that load raw data directly from the source tables.
 
+models/staging/stg_booking_details.sql
+models/staging/stg_customer_details.sql
+
+Both of these staging models are designed to structure raw data from the source tables in a way that makes it easier to work with in later stages of the pipeline.
+
+
 2. Intermediate:
 The intermediate models take the clean data from the staging layer and apply further transformations.
 
