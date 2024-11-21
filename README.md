@@ -99,7 +99,10 @@ This model is designed to create a Dimensional Table that can be used in reporti
 **fct_booking_summary** -
 This model is part of the Fact layer and is focused on summarizing the booking data for analytical purposes. It's designed to aggregate key metrics, such as total spending and total bookings, at a detailed level by destination and country.It enables decision-makers to easily understand which destinations are most popular and where customers are spending the most.
 
-
+schema.yml
+This file defines the metadata and tests for the DBT models, ensuring data quality and consistency.It is used to enforce data integrity for our models by specifying:
+Descriptions for better understanding of each column's purpose.
+Tests that automatically validate the data quality and consistency, such as ensuring no null values in critical columns (country_name) and that the count of bookings is always greater than zero.
 
 
 
