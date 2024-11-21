@@ -1,1 +1,45 @@
+create or replace TABLE TRAVEL_DB.RAW.BOOKING_DETAILS (
+	BOOKING_ID NUMBER(38,0) NOT NULL,
+	CUSTOMER_ID NUMBER(38,0) NOT NULL,
+	BOOKING_DATE DATE,
+	DESTINATION_TYPE VARCHAR(50),
+	AMOUNT_SPENT FLOAT,
+	CURRENCY_CODE VARCHAR(10),
+	STATUS VARCHAR(20),
+	SEGMENT_ID NUMBER(38,0),
+	COUNTRY_CODE VARCHAR(100)
+);
+
+INSERT INTO TRAVEL_DB.RAW.booking_details (BOOKING_ID, CUSTOMER_ID, BOOKING_DATE, BOOKING_TIME, DESTINATION_TYPE, AMOUNT_SPENT, CURRENCY_CODE, STATUS, SEGMENT_ID, COUNTRY_CODE)
+VALUES
+(101, 1, '2024-11-01', '10:00:00', 'city', 150.00, 'USD', 'confirmed', 1, 'US'),
+(102, 2, '2024-11-02', '12:30:00', 'beach', 200.00, 'CAD', 'pending', 2, 'CA'),
+(103, 3, '2024-11-03', '09:15:00', 'mountain', 250.00, 'EUR', 'confirmed', 1, 'FR'),
+(104, 4, '2024-11-04', '14:00:00', 'forest', 300.00, 'INR', 'confirmed', 3, 'IN'),
+(105, 5, '2024-11-05', '11:30:00', 'beach', 180.00, 'CAD', 'confirmed', 2, 'CA'),
+(106, 6, '2024-11-06', '08:00:00', 'mountain', 220.00, 'EUR', 'pending', 3, 'FR'),
+(107, 7, '2024-11-07', '17:00:00', 'city', 130.00, 'USD', 'confirmed', 1, 'US'),
+(108, 8, '2024-11-08', '19:00:00', 'beach', 170.00, 'INR', 'confirmed', 2, 'IN'),
+(109, 9, '2024-11-09', '13:00:00', 'mountain', 250.00, 'USD', 'pending', 1, 'US'),
+(110, 10, '2024-11-10', '16:30:00', 'forest', 300.00, 'CAD', 'confirmed', 3, 'CA'),
+(111, 11, '2024-11-11', '11:45:00', 'city', 180.00, 'EUR', 'confirmed', 2, 'FR'),
+(112, 12, '2024-11-12', '14:00:00', 'beach', 200.00, 'INR', 'pending', 3, 'IN'),
+(113, 13, '2024-11-13', '12:00:00', 'mountain', 250.00, 'USD', 'confirmed', 1, 'US'),
+(114, 14, '2024-11-14', '09:30:00', 'forest', 270.00, 'CAD', 'pending', 2, 'CA'),
+(115, 15, '2024-11-15', '17:30:00', 'city', 140.00, 'EUR', 'confirmed', 1, 'FR'),
+(116, 16, '2024-11-16', '18:15:00', 'mountain', 230.00, 'INR', 'confirmed', 3, 'IN'),
+(117, 17, '2024-11-17', '10:00:00', 'forest', 280.00, 'USD', 'pending', 2, 'US'),
+(118, 18, '2024-11-18', '13:30:00', 'beach', 220.00, 'CAD', 'confirmed', 1, 'CA'),
+(119, 19, '2024-11-19', '11:00:00', 'city', 160.00, 'EUR', 'confirmed', 3, 'FR'),
+(120, 20, '2024-11-20', '15:00:00', 'mountain', 240.00, 'INR', 'pending', 2, 'IN'),
+(121, 21, '2024-11-21', '12:45:00', 'forest', 290.00, 'USD', 'confirmed', 1, 'US'),
+(122, 22, '2024-11-22', '09:15:00', 'beach', 200.00, 'CAD', 'pending', 3, 'CA'),
+(123, 23, '2024-11-23', '16:00:00', 'mountain', 260.00, 'EUR', 'confirmed', 2, 'FR'),
+(124, 24, '2024-11-24', '10:30:00', 'city', 150.00, 'INR', 'pending', 3, 'IN'),
+(125, 25, '2024-11-25', '14:00:00', 'forest', 310.00, 'USD', 'confirmed', 2, 'US'),
+(126, 26, '2024-11-26', '11:30:00', 'beach', 180.00, 'CAD', 'confirmed', 1, 'CA'),
+(127, 27, '2024-11-27', '13:15:00', 'mountain', 230.00, 'EUR', 'pending', 3, 'FR'),
+(128, 28, '2024-11-28', '17:00:00', 'forest', 300.00, 'INR', 'confirmed', 2, 'IN'),
+(129, 29, '2024-11-29', '09:45:00', 'city', 130.00, 'USD', 'pending', 1, 'US'),
+(130, 30, '2024-11-30', '15:30:00', 'beach', 220.00, 'CAD', 'confirmed', 3, 'CA');
 
