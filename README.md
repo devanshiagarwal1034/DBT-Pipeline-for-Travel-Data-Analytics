@@ -3,7 +3,7 @@
 This project is designed for individuals looking to explore **DBT (Data Build Tool)**. I developed it to consolidate my understanding of DBT's core concepts and its seamless integration with Snowflake, to build scalable and efficient data transformation pipelines
 
 ### What is DBT?  
-DBT is a powerful framework that helps us to write and organize SQL queries for data transformations. It also offers built-in documentation and testing features, helping you track our data transformations and ensure data quality throughout the process. It doesn't provide its own storage but relies on a data warehouse, like Snowflake, to execute the queries and manage the data.
+DBT is a powerful framework that helps us to write and organize SQL queries for data transformations. It also offers built-in documentation and testing features, helping us to track our data transformations and ensure data quality throughout the process. It doesn't provide its own storage but relies on a data warehouse, like Snowflake, to execute the queries and manage the data.
 
 ### Goal  
 The goal of this project is to explore and implement key DBT concepts, including models, sources, snapshots, tests (both built-in and custom), macros, pre and post hook and incremental materialization. This project aims to provide a hands-on understanding of how DBT can be used to streamline data transformation processes while ensuring data quality and efficiency
