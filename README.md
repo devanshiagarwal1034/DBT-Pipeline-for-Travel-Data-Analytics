@@ -102,7 +102,8 @@ To keep everything clear and organized, I have divided the DBT models into three
 
   ![lineage](dbt/fct_booking_summary_lineage.png)
 
-macros -
+
+### `Macros` -
 It is a reusable block of code written in Jinja (a templating language). Macros  help automate repetitive tasks or complex logic by creating reusable functions that can be used across your models, tests, and other DBT files.
  custom_test.sql
 
