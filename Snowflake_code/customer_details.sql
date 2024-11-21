@@ -10,7 +10,7 @@ create or replace TABLE TRAVEL_DB.RAW.CUSTOMER_DETAILS (
 	primary key (CUSTOMER_ID)
 );
 
-INSERT INTO customer_details (CUSTOMER_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, ADDRESS, COUNTRY_CODE, SEGMENT_ID)
+INSERT INTO TRAVEL_DB.RAW.customer_details (CUSTOMER_ID, FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, ADDRESS, COUNTRY_CODE, SEGMENT_ID)
 VALUES
 (1, 'Alice', 'Johnson', 'alice.johnson@example.com', '1234567890', '123 Maple St', 'US', 1),
 (2, 'Bob', 'Smith', 'bob.smith@example.com', '1234567891', '456 Oak St', 'CA', 2),
