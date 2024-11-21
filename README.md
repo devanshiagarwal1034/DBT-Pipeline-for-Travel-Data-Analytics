@@ -65,8 +65,8 @@ To keep everything clear and organized, I have divided the DBT models into three
 1. **Staging** -
   This layer contains models that load raw data directly from the source tables.
 
-  - [`stg_booking_details.sql`](dbt/models/staging/stg_booking_details.sql)
-  - [`stg_customer_details.sql`](dbt/models/staging/stg_customer_details.sql)
+  - [`stg_booking_details`](dbt/models/staging/stg_booking_details.sql)
+  - [`stg_customer_details`](dbt/models/staging/stg_customer_details.sql)
 
     Both of these staging models are designed to structure raw data from the source tables in a way that makes it easier to work with in later stages of the    pipeline.
 
@@ -74,7 +74,7 @@ To keep everything clear and organized, I have divided the DBT models into three
 2. **Intermediate** -
   The intermediate models transform the clean data from the staging layer and apply further cleaning or enrichment.
 
-  - [`int_booking_details.sql`](dbt/models/intermediate/int_booking_details.sql)
+  - [`int_booking_details`](dbt/models/intermediate/int_booking_details.sql)
 
     ***Config Block*** -
     - **Materialization**: The model is set to be materialized incrementally (`materialized='incremental'`), meaning only new or changed records will be processed     rather than reprocessing the entire dataset.
@@ -84,20 +84,20 @@ To keep everything clear and organized, I have divided the DBT models into three
 
     This setup ensures that only new and updated bookings are processed, and it logs the model's execution times for tracking purposes. It efficiently manages   growing datasets by leveraging DBT’s incremental model functionality, reducing processing time and resources.
 
-   - [`int_customer_details.sql`](dbt/models/intermediate/int_customer_details.sql)
+   - [`int_customer_details`](dbt/models/intermediate/int_customer_details.sql)
     This model takes the data from the Staging layer (stg_customer_details.sql) and prepare it for business analysis and reporting. The joins with customer_segments and country_codes add valuable context to the data, allowing us to better understand customer demographics.
 
   3. **Marts** -
   The marts layer contains models that are optimized for business users and reporting tools.
 
-  - [`dim_customer_segmentation.sql`](dbt/models/marts/dim_customer_segmentation.sql) -
+  - [`dim_customer_segmentation`](dbt/models/marts/dim_customer_segmentation.sql) -
     This model is designed to create a Dimensional Table that can be used in reporting and analysis. It helps in understanding the distribution of customers across   different segments and countries, providing valuable insights for decision-making and business strategy.
 
 
     ![lineage](dbt/dim_customer_segmentation_lineage.png)
 
 
-  - [`dim_customer_segmentation.sql`](dbt/models/marts/dim_customer_segmentation.sql) - 
+  - [`fct_booking_summary`](dbt/models/marts/fct_booking_summary.sql) - 
     This model is part of the Fact layer and is focused on summarizing the booking data for analytical purposes. It's designed to aggregate key metrics, such as total spending and total bookings, at a detailed level by destination and country.It enables decision-makers to easily understand which destinations are most popular and where customers are spending the most.
 
   ![lineage](dbt/fct_booking_summary_lineage.png)
