@@ -74,27 +74,27 @@ To keep everything clear and organized, I have divided the DBT models into three
 2. **Intermediate** -
   The intermediate models transform the clean data from the staging layer and apply further cleaning or enrichment.
 
-  - [`int_customer_details.sql`](dbt/models/intermediate/int_customer_details.sql)
+  - [`int_booking_details.sql`](dbt/models/intermediate/int_booking_details.sql)
 
     ***Config Block*** -
     - **Materialization**: The model is set to be materialized incrementally (`materialized='incremental'`), meaning only new or changed records will be processed     rather than reprocessing the entire dataset.
     - **Pre-hook**: Before the model runs, it inserts a log entry into the `model_run_log` table to track when the model execution starts.
     - **Post-hook**: After the model execution finishes successfully, it inserts another log entry to mark the model as complete.
-   - The model pulls data from the `stg_booking_details` staging table (via `{{ ref('stg_booking_details') }}`) and joins it with other tables   (`destination_types`, `customer_segments`, `country_codes`, and `currency_exchange_rates`).
-   - This creates a more enriched version of the `booking_details` table
-This setup ensures that only new and updated bookings are processed, and it logs the model's execution times for tracking purposes. It efficiently manages growing datasets by leveraging DBT’s incremental model functionality, reducing processing time and resources.
+     The model pulls data from the `stg_booking_details` staging table (via `{{ ref('stg_booking_details') }}`) and joins it with other tables (`destination_types`, `customer_segments`, `country_codes`, and `currency_exchange_rates`).This creates a more enriched version of the `booking_details` table
 
-**int_customer_details** -
-This model takes the data from the Staging layer (stg_customer_details.sql) and prepare it for business analysis and reporting. The joins with customer_segments and country_codes add valuable context to the data, allowing us to better understand customer demographics.
+    This setup ensures that only new and updated bookings are processed, and it logs the model's execution times for tracking purposes. It efficiently manages   growing datasets by leveraging DBT’s incremental model functionality, reducing processing time and resources.
 
-4. Marts:
-The marts layer contains models that are optimized for business users and reporting tools.
+   - [`int_customer_details.sql`](dbt/models/intermediate/int_customer_details.sql)
+    This model takes the data from the Staging layer (stg_customer_details.sql) and prepare it for business analysis and reporting. The joins with customer_segments and country_codes add valuable context to the data, allowing us to better understand customer demographics.
 
-**dim_customer_segmentation** -
-This model is designed to create a Dimensional Table that can be used in reporting and analysis. It helps in understanding the distribution of customers across different segments and countries, providing valuable insights for decision-making and business strategy.
+  3. **Marts** -
+  The marts layer contains models that are optimized for business users and reporting tools.
+
+  - [`int_booking_details.sql`](dbt/models/intermediate/int_booking_details.sql)
+  This model is designed to create a Dimensional Table that can be used in reporting and analysis. It helps in understanding the distribution of customers across   different segments and countries, providing valuable insights for decision-making and business strategy.
 
 
-![lineage](dbt/dim_customer_segmentation_lineage.png)
+  ![lineage](dbt/dim_customer_segmentation_lineage.png)
 
 
 **fct_booking_summary** -
