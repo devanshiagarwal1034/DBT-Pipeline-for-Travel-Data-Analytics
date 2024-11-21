@@ -96,8 +96,14 @@ The marts layer contains models that are optimized for business users and report
 **dim_customer_segmentation** -
 This model is designed to create a Dimensional Table that can be used in reporting and analysis. It helps in understanding the distribution of customers across different segments and countries, providing valuable insights for decision-making and business strategy.
 
+
+![lineage](dbt/dim_customer_segmentation_lineage.png)
+
+
 **fct_booking_summary** -
 This model is part of the Fact layer and is focused on summarizing the booking data for analytical purposes. It's designed to aggregate key metrics, such as total spending and total bookings, at a detailed level by destination and country.It enables decision-makers to easily understand which destinations are most popular and where customers are spending the most.
+
+![lineage](dbt/fct_booking_summary_lineage.png)
 
 macros -
 It is a reusable block of code written in Jinja (a templating language). Macros  help automate repetitive tasks or complex logic by creating reusable functions that can be used across your models, tests, and other DBT files.
