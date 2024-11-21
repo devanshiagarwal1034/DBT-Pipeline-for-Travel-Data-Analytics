@@ -1,0 +1,27 @@
+name: travel_project  # Project name
+profile: travel_profile  # Profile name, should match profiles.yml
+version: "1.0"
+
+# Target directory for dbt models, snapshots, and seeds
+target-path: target
+clean-targets:
+  - target
+
+# Seeds configuration - specify the schema where you want to store seeds
+seeds:
+  travel_project:
+    # Override the schema for seed tables
+    schema: seeds  # Change this to your desired schema
+
+
+
+# You can add other folders like 'staging', 'marts', 'intermediate', etc.
+models:
+  travel_project:
+    staging:
+      +materialized: table
+    marts:
+      +materialized: table
+    intermediate:
+      +materialized: view
+
