@@ -60,7 +60,20 @@ I have use **Freshness** parameter to ensure that the data being ingested or tra
   - An error if the data is older than 24 hours.
 I have use Data Quality Tests to ensure things like booking_id is unique, essential fields like customer_id are not null, and status are always one of the accepted options.
 
+### Models -
+In DBT, models are SQL files where we define transformations to manipulate and clean our raw data. Each model represents a specific transformation or view that gets created in the database. These models help us break down complex processes into manageable, reusable parts, making the pipeline more efficient and easier to maintain.
 
+To keep everything clear and organized, I have divided the DBT models into three distinct layers: Staging, Intermediate, and Marts.
+
+1. Staging:
+This layer contains models that load raw data directly from the source tables.
+
+2. Intermediate:
+The intermediate models take the clean data from the staging layer and apply further transformations.
+
+
+3. Marts:
+The marts layer contains models that are optimized for business users and reporting tools.
 
 
 
