@@ -87,6 +87,8 @@ The intermediate models take the clean data from the staging layer and apply fur
    - This creates a more enriched version of the `booking_details` table
 This setup ensures that only new and updated bookings are processed, and it logs the model's execution times for tracking purposes. It efficiently manages growing datasets by leveraging DBT’s incremental model functionality, reducing processing time and resources.
 
+**int_customer_details** -
+This model takes the data from the Staging layer (stg_customer_details.sql) and prepare it for business analysis and reporting. The joins with customer_segments and country_codes add valuable context to the data, allowing us to better understand customer demographics.
 
 4. Marts:
 The marts layer contains models that are optimized for business users and reporting tools.
