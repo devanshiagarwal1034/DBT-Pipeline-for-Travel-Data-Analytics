@@ -35,7 +35,7 @@ I created a file called `dbt_concepts` to document all the DBT concepts I’m le
 ### `profiles.yml` -
 
 This `profiles.yml` file configures the connection between DBT and Snowflake. It defines how DBT should authenticate and connect to our Snowflake data warehouse.
-When we run DBT commands, such as dbt run or dbt test, the profiles.yml file tells DBT how to connect to your Snowflake database using the specified configuration. By setting up the target as dev, DBT uses the connection details under the dev output.
+When we run DBT commands, such as dbt run or dbt test, the profiles.yml file tells DBT how to connect to our Snowflake database using the specified configuration. By setting up the target as dev, DBT uses the connection details under the dev output.
 This setup is flexible and allows us to add other environments like prod for production-level settings if needed.
 - [`profiles.yml`](dbt/profiles.yml)
 
