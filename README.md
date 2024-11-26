@@ -108,7 +108,7 @@ To keep everything clear and organized, I have divided the DBT models into three
 
 ### `Macros` -
 It is a reusable block of code written in Jinja (a templating language). Macros help automate repetitive tasks or complex logic by creating reusable functions that can be used across your models, tests, and other DBT files.
- custom_test.sql
+
 
 - [`custom_tests.sql`](dbt/macros/custom_tests.sql) -
   This macro is designed to check if a given column (in this case, total_bookings) contains any values that are less than or equal to zero. The purpose is to ensure that the total_bookings column always has values greater than zero,
