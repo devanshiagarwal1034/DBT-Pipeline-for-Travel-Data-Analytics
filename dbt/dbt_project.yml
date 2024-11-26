@@ -11,11 +11,11 @@ clean-targets:
 seeds:
   travel_project:
     # Override the schema for seed tables
-    schema: seeds  # Change this to your desired schema
+    schema: seeds  
 
 
 
-# You can add other folders like 'staging', 'marts', 'intermediate', etc.
+
 models:
   travel_project:
     staging:
